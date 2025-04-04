@@ -9,7 +9,7 @@
         "url": "https://github.com/secularbird/cpplint-extension"
     },
     "engines": {
-        "vscode": "^1.21.0"
+        "vscode": "^1.85.0"
     },
     "categories": [
         "Linters"
@@ -138,11 +138,15 @@
         "test": "node ./node_modules/vscode/bin/test"
     },
     "devDependencies": {
-        "typescript": "^2.0.3",
-        "vscode": "^1.0.0",
-        "mocha": "^2.3.3",
-        "@types/node": "^6.0.40",
-        "@types/mocha": "^2.2.32"
+        "@types/vscode": "^1.85.0",
+        "@types/mocha": "^10.0.10",
+        "@types/node": "20.x",
+        "@typescript-eslint/eslint-plugin": "^8.28.0",
+        "@typescript-eslint/parser": "^8.28.0",
+        "eslint": "^9.23.0",
+        "typescript": "^5.8.2",
+        "@vscode/test-cli": "^0.0.10",
+        "@vscode/test-electron": "^2.4.1"
     },
     "dependencies": {
         "lodash": "^4.17.4"

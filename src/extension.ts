@@ -10,7 +10,7 @@ import { ConfigManager } from './configuration';
 
 let outputChannel: vscode.OutputChannel;
 let statusItem: vscode.StatusBarItem;
-let timer: NodeJS.Timer;
+let timer: NodeJS.Timeout;
 
 let diagnosticCollection: vscode.DiagnosticCollection = vscode.languages.createDiagnosticCollection('cpplint');
 
