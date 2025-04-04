@@ -43,7 +43,7 @@
             "properties": {
                 "cpplint.cpplintPath": {
                     "type": "string",
-                    "default": "/usr/local/bin/cpplint",
+                    "default": "",
                     "description": "The path to the cpplint executable. If not set, the default location will be used."
                 },
                 "cpplint.lintMode": {

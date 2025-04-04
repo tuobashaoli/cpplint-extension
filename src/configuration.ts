@@ -5,6 +5,7 @@ import { platform } from 'os';
 import { join } from 'path';
 import { each, isNull } from 'lodash';
 import { existsSync } from 'fs';
+import { execSync } from "child_process";
 
 export class ConfigManager {
 
@@ -28,12 +29,12 @@ export class ConfigManager {
     }
 
     private findCpplintPath(settings: vscode.WorkspaceConfiguration): string {
-        let cpplintPath = settings.get('cpplintPath', null);
+        let cpplintPath = settings.get('cpplintPath', '');
 
-        if (isNull(cpplintPath)) {
+        if (cpplintPath === "") {
             let p = platform();
             if (p === 'win32') {
-                // TODO: add win32 and win64 cpplint path
+                cpplintPath = execSync("where cpplint").toString().trim();
             }
             else if (p === 'linux' || p === 'darwin') {
                 let attempts = ['/usr/local/bin/cpplint'];
@@ -71,6 +72,7 @@ export class ConfigManager {
 
         if (settings) {
             var cpplintPath = this.findCpplintPath(settings);
+            console.log("cpplint path:"+cpplintPath)
 
             if (!existsSync(cpplintPath)) {
                 vscode.window.showErrorMessage('Cpplint: Could not find cpplint executable');
